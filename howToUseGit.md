@@ -163,6 +163,7 @@
 ## Revert 이해하기
 
 1. 현재 상태
+
    <img src="img/revert1.png" width="350px" height="250px"></img>
 
 2. 만약 R4를 삭제하고 R3 상태로 이동하고 싶다면
@@ -175,12 +176,16 @@ git reset -hard 4f5daa36df442c132d5e8c02af1260ea516d085f
 - 하지만 `revert` 를 사용할 때에는 R3 가 아닌 R4를 `revert` 해줘야 R3로 되돌릴 수 있다.
 
 3. `git revert (R4의 commit id)` 를 입력하면 에디터 화면으로 이동하게 된다.
+
    <img src="img/revertR4.png" width="350px" height="150px"></img>
 
 4. 에디터를 빠져나온 후 (ctrl + x => y => enter) `git log`를 확인해 보면 새로운 commit 이 생기고 기존에 커밋도 유지 되있는 것을 확인 할 수 있다.
-   <img src="img/newRevert.png" width="350px" height="160px"></img> - 즉, 기존의 commit은 그대로 두고 기존 커밋에서의 변화를 취소 한 것이기 때문에 R4를 revert 하면 R3 상태로 돌아 가게 된다.
 
-<img src="img/revert2.png" width="350px" height="160px"></img>
+   <img src="img/newRevert.png" width="350px" height="160px"></img>
+
+   - 즉, 기존의 commit은 그대로 두고 기존 커밋에서의 변화를 취소 한 것이기 때문에 R4를 revert 하면 R3 상태로 돌아 가게 된다.
+
+   <img src="img/revert2.png" width="350px" height="160px"></img>
 
 ---
 
@@ -190,11 +195,11 @@ git reset -hard 4f5daa36df442c132d5e8c02af1260ea516d085f
 
 1. `git branch` 명령어를 통해 브랜치 목록을 확인할 수 있다.
 
-<img src="img/branch-m.png" width="350px" height="50px"></img>
+   <img src="img/branch-m.png" width="350px" height="50px"></img>
 
 2. `git branch apple` apple 이라는 이름의 브랜치를 생성한다.
 
-<img src="img/branch-a.png" width="350px" height="50px"></img>
+   <img src="img/branch-a.png" width="350px" height="50px"></img>
 
 3. `git checkout` 명령을 통해 브랜치를 이동할 수 있다.
 
@@ -209,16 +214,28 @@ git checkout master
 2. 에디터에서 apple 브랜치 내용을 수정 후 apple.txt 파일 생성 후 내용을 수정
 3. add, commit 후 `git log --all --graph --oneline` 명령을 통해 브랜치를 그래프 처럼 확인 할 수 있다.
 
-<img src="img/branch-g.png" width="350px" height="80px"></img>
+   <img src="img/branch-g.png" width="350px" height="80px"></img>
 
-<img src="img/branch.png" width="350px" height="100px"></img>
+   <img src="img/branch.png" width="350px" height="100px"></img>
 
 ### Merge
 
-1. master 브랜치로 이동 `git checkout master`
+### (1) 서로다른 파일 병합
 
-<img src="img/master-b.png" width="350px" height="100px"></img>
+1. o2 브랜치 생성 `git branch o2`
 
-2. o2 브랜치를 merge 하면 새로운 commit이 생성된다.
+2. master 브랜치로 이동 `git checkout master`
 
-<img src="img/merge-commit.png" width="350px" height="100px"></img>
+   <img src="img/master-b.png" width="350px" height="100px"></img>
+
+3. o2 브랜치를 merge 하면 새로운 commit이 생성된다.
+
+   <img src="img/merge-commit.png" width="350px" height="100px"></img>
+
+   <img src="img/merge-graph.png" width="350px" height="100px"></img>
+
+### (2) 같은 파일 병합
+
+1. 새로운 파일 work.txt 생성 `nano work.txt` 후 내용 입력
+
+   <img src="img/merge1.png" width="250px" height="160px"></img>
