@@ -70,7 +70,7 @@
 - commit 을 하게되면 staging area에 있는 파일들만 commit에 반영됨
 - = index (commit을 실행하기 전의 저장소와 working tree 사이에 존재하는 공간을 '인덱스' 라고 함)
 
-<center><img src="img/repository.png" width="350px" height="150px"></img></center>
+<img src="img/repository.png" width="350px" height="150px"></img>
 
 ### repository
 
@@ -86,13 +86,14 @@
 ### 연습
 
 1. hello1.txt 파일 생성 (`nano hello1.txt` )
-<center><img src="img/file_create.png" width="350px" height="300px"></img></center>
+
+   <img src="img/file_create.png" width="350px" height="300px"></img>
 
 2. 내용 입력
 3. `ctrl + x ⇒ y ⇒ enter`
 4. hello1.txt 파일 내용 확인 (`cat hello1.txt` )
 
-<center><img src="img/cat.png" width="350px" height="100px"></img></center>
+<img src="img/cat.png" width="350px" height="100px"></img>
 
 5. 현재 상태 확인 ( `git status` )
 
@@ -100,7 +101,7 @@
 
    — Untracked files ( 추적 되고 있지 않는 파일 )
 
-<center><img src="img/status.png" width="350px" height="100px"></img></center>
+<img src="img/status.png" width="350px" height="100px"></img>
 
 6. staging area에 올리는 작업 (`git add hello1.txt`)
 
@@ -108,11 +109,11 @@
 
 7. 버전을 생성 (`git commit -m " 커밋 메시지 "`)
 
-<center><img src="img/commitMessage.png" width="350px" height="70px"></img></center>
+<img src="img/commitMessage.png" width="350px" height="70px"></img>
 
 8. 버전이 잘만들어 졌는지 확인 ( `git log` )
 
-<center><img src="img/gitLog.png" width="350px" height="60px"></img></center>
+<img src="img/gitLog.png" width="350px" height="60px"></img>
 
 ---
 
@@ -145,7 +146,7 @@
   git reset --hard 358c1137f00978c7f905eb168852f25663701ca1
   ```
 
-  <center><img src="img/reset.png" width="350px" height="60px"></img></center>
+  <img src="img/reset.png" width="350px" height="60px"></img>
 
   **Reset 사용 시 주의사항**
 
@@ -162,7 +163,7 @@
 ## Revert 이해하기
 
 1. 현재 상태
-<center><img src="img/revert1.png" width="350px" height="250px"></img></center>
+   <img src="img/revert1.png" width="350px" height="250px"></img>
 
 2. 만약 R4를 삭제하고 R3 상태로 이동하고 싶다면
    - 만약 `reset`을 사용한해서 R3로 되돌린다면 R3의 commit id를 통해 R3 버전으로 이동하게 된다.
@@ -174,13 +175,12 @@ git reset -hard 4f5daa36df442c132d5e8c02af1260ea516d085f
 - 하지만 `revert` 를 사용할 때에는 R3 가 아닌 R4를 `revert` 해줘야 R3로 되돌릴 수 있다.
 
 3. `git revert (R4의 commit id)` 를 입력하면 에디터 화면으로 이동하게 된다.
-<center><img src="img/revertR4.png" width="350px" height="150px"></img></center>
+   <img src="img/revertR4.png" width="350px" height="150px"></img>
 
 4. 에디터를 빠져나온 후 (ctrl + x => y => enter) `git log`를 확인해 보면 새로운 commit 이 생기고 기존에 커밋도 유지 되있는 것을 확인 할 수 있다.
-<center><img src="img/newRevert.png" width="350px" height="160px"></img></center>
-    - 즉, 기존의 commit은 그대로 두고 기존 커밋에서의 변화를 취소 한 것이기 때문에 R4를 revert 하면 R3 상태로 돌아 가게 된다.
+   <img src="img/newRevert.png" width="350px" height="160px"></img> - 즉, 기존의 commit은 그대로 두고 기존 커밋에서의 변화를 취소 한 것이기 때문에 R4를 revert 하면 R3 상태로 돌아 가게 된다.
 
-<center><img src="img/revert2.png" width="350px" height="160px"></img></center>
+<img src="img/revert2.png" width="350px" height="160px"></img>
 
 ---
 
@@ -190,11 +190,11 @@ git reset -hard 4f5daa36df442c132d5e8c02af1260ea516d085f
 
 1. `git branch` 명령어를 통해 브랜치 목록을 확인할 수 있다.
 
-<center><img src="img/branch-m.png" width="350px" height="50px"></img></center>
+<img src="img/branch-m.png" width="350px" height="50px"></img>
 
 2. `git branch apple` apple 이라는 이름의 브랜치를 생성한다.
 
-<center><img src="img/branch-a.png" width="350px" height="50px"></img></center>
+<img src="img/branch-a.png" width="350px" height="50px"></img>
 
 3. `git checkout` 명령을 통해 브랜치를 이동할 수 있다.
 
@@ -208,8 +208,17 @@ git checkout master
 1. `git checkout apple` 로 apple 브랜치로 이동
 2. 에디터에서 apple 브랜치 내용을 수정 후 apple.txt 파일 생성 후 내용을 수정
 3. add, commit 후 `git log --all --graph --oneline` 명령을 통해 브랜치를 그래프 처럼 확인 할 수 있다.
-<center><img src="img/branch-g.png" width="350px" height="80px"></img></center>
 
-![screenshot](./img/branch.png)
+<img src="img/branch-g.png" width="350px" height="80px"></img>
+
+<img src="img/branch.png" width="350px" height="100px"></img>
 
 ### Merge
+
+1. master 브랜치로 이동 `git checkout master`
+
+<img src="img/master-b.png" width="350px" height="100px"></img>
+
+2. o2 브랜치를 merge 하면 새로운 commit이 생성된다.
+
+<img src="img/merge-commit.png" width="350px" height="100px"></img>
