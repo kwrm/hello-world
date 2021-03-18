@@ -210,4 +210,6 @@ git checkout master
 3. add, commit 후 `git log --all --graph --oneline` 명령을 통해 브랜치를 그래프 처럼 확인 할 수 있다.
 <center><img src="img/branch-g.png" width="350px" height="80px"></img></center>
 
-<center><img src="img/branch.png" width="350px" height="100px"></img></center>
+![screenshot](./img/branch.png)
+
+### Merge
