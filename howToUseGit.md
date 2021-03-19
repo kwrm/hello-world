@@ -239,3 +239,97 @@ git checkout master
 1. 새로운 파일 work.txt 생성 `nano work.txt` 후 내용 입력
 
    <img src="img/merge1.png" width="250px" height="160px"></img>
+
+2. 새로운 O2라는 새로운 branch 생성 `git branch O2`
+
+3. master branch에서는 위쪽 content 내용을 master content로 수정
+
+   <img src="img/masterbranch.png" width="250px" height="160px"></img>
+
+4. O2 branch에서는 아래쪽 content 내용을 O2 content로 수정
+
+   <img src="img/O2branch.png" width="250px" height="160px"></img>
+
+   <img src="img/beformerge.png" width="350px" height="100px"></img>
+
+5. 다시 master branch로 checkout한 다음 O2 branch를 master branch로 merge
+
+   <img src="img/merge2.png" width="350px" height="100px"></img>
+
+   <img src="img/merge2-1.png" width="350px" height="100px"></img>
+
+---
+
+### (3) 같은 파일, 같은 부분 변합 (conflict)
+
+1. 현재 master 와 o2 branch가 현재 작업중인 로컬 브랜치를 가리키고 있다.
+
+   <img src="img/conflict1.png" width="350px" height="100px"></img>
+
+2. master branch 에서는 중간에 master 내용을 추가
+
+   <img src="img/conflict2.png" width="150px" height="100px"></img>
+
+3. o2 branch 에서는 중간에 o2 내용을 추가
+
+   <img src="img/conflict3.png" width="150px" height="100px"></img>
+
+   <img src="img/beforconflict.png" width="350px" height="80px"></img>
+
+4. 같은 파일에 같은 부분을 수정하고 merge를 하게 되면 conflict 발생
+
+   <img src="img/merge_conflict.png" width="350px" height="80px"></img>
+
+   <img src="img/merge_conflict2.png" width="350px" height="80px"></img>
+
+5. `=======`는 구분자 이고 구분자 윗부븐은 현재 branch(master)를 나타내고 구분자 아래쪽은 o2 branch를 나타낸다.
+
+- 이 상황은 git에서는 자동으로 처리할 수 없고 수동으로 수정 해줘야 한다.
+
+  <img src="img/merge_conflict3.png" width="150px" height="130px"></img>
+
+6. 내용을 수정 후 add, commit을 해주면 conflict를 해결해서 수정했다는 메시지가 나온다.
+
+   <img src="img/conflict_solution.png" width="150px" height="130px"></img>
+
+   <img src="img/conflict_solution2.png" width="350px" height="130px"></img>
+
+   <img src="img/conflict_solution3.png" width="350px" height="200px"></img>
+
+7. `git log --all --graph --oneline` 명령을 통해 그래프로 표현하면 새로운 버전이 생성 된 걸 확인 할 수 있다
+
+   - 이 새로운 버전은 o2의 최신 branch와 master의 이전 branch를 공통의 부모(base)로 하고 있다는 것을 확인 할 수 있다
+
+   <img src="img/conflict_solution4.png" width="350px" height="130px"></img>
+
+8. 최종적으로 수정한 파일을 확인해 보면 conflict를 해결하고 수정 내용이 반영된 것을 확인할 수 있다.
+
+   <img src="img/conflict_solution.png" width="150px" height="130px"></img>
+
+---
+
+### Merge와 Rebase의 차이
+
+- git 에서 특정 branch에서 다른 branch로 병합하는 방법은 Merge와 Rebase가 있다.
+- Merge와 Rebase의 실행결과는 같지만 commit history가 달라진다.
+- Merge는 쉽고 안전하지만 commit history가 지저분해 질 수 있다.
+- 반면 Rebase는 잘 모르고 사용하면 위함하고 까다롭지만 commit history를 깔끔하게 관리 할 수 있다.
+- Rebase는 base를 새롭게 설정한다는 의미로 이해하면 된다.
+
+### Rebase
+
+1. 현재 상황은 topic과 master각 각자 작업을 수행하는 상황
+
+   <img src="img/rebase_u1.png" width="250px" height="150px"></img>
+
+2. 만약 topic 작업을 완료 한 후에 이어서 master 작업을 진행하려고 할때, 현재 master와 topic의 base는 `C` 이다.
+
+   <img src="img/rebase_u2.png" width="250px" height="150px"></img>
+
+3. 만약 master를 topic으로 rebase를 한다면 아래 그림 처럼 된다.
+
+- master의 `m1`의 현재 base를 `C` 에서 topic의 `t2`로 rebase 한다.
+
+  <img src="img/rebase_u3.png" width="250px" height="150px"></img>
+
+  <img src="img/rebase_u4.png" width="250px" height="150px"></img>
